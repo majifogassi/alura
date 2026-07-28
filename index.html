@@ -1,19 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>sephora</title>
-</head>
-<body>
-    <h1>  sephora</h1>
-    <p> produtos </p>
-    <button>pesquisa</button>
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barra de Pesquisa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspirado na Sephora | Beleza & Cosméticos</title>
+  <style>
+    /* Reset e Estilos Gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Top Banner */
+    .top-bar {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .search-bar input {
+      padding: 8px 16px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    .user-actions a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Menu de Navegação */
+    nav {
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 12px 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav ul li a:hover {
+      border-bottom: 2px solid #000;
+      padding-bottom: 4px;
+    }
+
+    /* Banner Principal */
+    .hero {
+      background-color: #f4f4f4;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .btn-main {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+    }
+
+    .btn-main:hover
