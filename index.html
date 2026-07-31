@@ -3,39 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inspirado na Sephora | Beleza & Cosméticos</title>
+  <title>Sephora | Beleza, Maquiagem e Perfumes</title>
   <style>
-    /* Reset e Estilos Gerais */
+    /* RESET E ESTILOS GERAIS */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
     }
 
     body {
-      background-color: #fff;
+      background-color: #f8f8f8;
       color: #000;
     }
 
-    /* Top Banner */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* BARRA SUPERIOR (TOPBAR) */
     .top-bar {
       background-color: #000;
       color: #fff;
       text-align: center;
-      padding: 8px 0;
+      padding: 8px;
       font-size: 12px;
+      font-weight: bold;
       letter-spacing: 1px;
-      text-transform: uppercase;
     }
 
-    /* Header */
+    /* CABEÇALHO (HEADER) */
     header {
-      border-bottom: 1px solid #e5e5e5;
-      padding: 15px 40px;
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -43,92 +57,360 @@
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
-      text-decoration: none;
-      color: #000;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 30px;
+      position: relative;
     }
 
     .search-bar input {
-      padding: 8px 16px;
-      width: 300px;
+      width: 100%;
+      padding: 10px 15px;
       border: 1px solid #ccc;
       border-radius: 20px;
       outline: none;
-    }
-
-    .user-actions a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #000;
       font-size: 14px;
-      font-weight: 600;
     }
 
-    /* Menu de Navegação */
-    nav {
-      border-bottom: 1px solid #e5e5e5;
-      background-color: #fff;
-    }
-
-    nav ul {
+    .user-actions {
       display: flex;
-      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* MENU DE NAVEGAÇÃO */
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-links {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
       list-style: none;
       padding: 12px 0;
-    }
-
-    nav ul li {
-      margin: 0 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #000;
       font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    nav ul li a:hover {
-      border-bottom: 2px solid #000;
-      padding-bottom: 4px;
-    }
-
-    /* Banner Principal */
-    .hero {
-      background-color: #f4f4f4;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    .btn-main {
-      background-color: #000;
-      color: #fff;
-      padding: 12px 30px;
-      text-decoration: none;
       font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links li a:hover {
+      color: #ff0055;
+    }
+
+    .highlight {
+      color: #d90429;
+    }
+
+    /* BANNER PRINCIPAL */
+    .hero-banner {
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero-banner h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero-banner p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .btn-banner {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      padding: 12px 30px;
+      font-weight: bold;
+      border-radius: 4px;
       text-transform: uppercase;
-      font-size: 12px;
       letter-spacing: 1px;
       transition: background 0.3s;
     }
 
-    .btn-main:hover
+    .btn-banner:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* SEÇÃO DE PRODUOS */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #000;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #000;
+      color: #fff;
+      font-size: 10px;
+      padding: 4px 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 180px;
+      background-color: #f0f0f0;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    .brand {
+      font-size: 11px;
+      font-weight: bold;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      height: 36px;
+      overflow: hidden;
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .btn-buy {
+      display: block;
+      width: 100%;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 0;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .btn-buy:hover {
+      background-color: #333;
+    }
+
+    /* RODAPÉ (FOOTER) */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    FRETE GRÁTIS NAS COMPRAS ACIMA DE R$ 149 | PARCELE EM ATÉ 10X SEM JUROS
+  </div>
+
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">SEPHORA</a>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="O que você procura hoje? (ex: Batom, Perfume, Base...)">
+      </div>
+
+      <div class="user-actions">
+        <a href="#">Minha Conta</a>
+        <a href="#">Sacola (0)</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#" class="highlight">OFERTAS</a></li>
+      <li><a href="#">MAQUIAGEM</a></li>
+      <li><a href="#">SKINCARE</a></li>
+      <li><a href="#">PERFUMES</a></li>
+      <li><a href="#">CABELOS</a></li>
+      <li><a href="#">CORPO & BANHO</a></li>
+      <li><a href="#">SEPHORA COLLECTION</a></li>
+      <li><a href="#">MARCAS</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero-banner">
+    <h1>BEAUTY CLUB</h1>
+    <p>Aproveite até 50% OFF nos produtos mais desejados da temporada.</p>
+    <a href="#" class="btn-banner">Confira os Destaques</a>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Mais Desejados</h2>
+
+    <div class="product-grid">
+      
+      <div class="product-card">
+        <span class="badge">Só na Sephora</span>
+        <div class="product-image">[ Imagem do Produto ]</div>
+        <div class="brand">Sephora Collection</div>
+        <div class="product-name">Batom Líquido Matte Cream Lip Stain</div>
+        <div class="price">R$ 69,00</div>
+        <button class="btn-buy">Adicionar à Sacola</button>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Novo</span>
+        <div class="product-image">[ Imagem do Produto ]</div>
+        <div class="brand">Rare Beauty</div>
+        <div class="product-name">Blush Líquido Soft Pinch Liquid Blush</div>
+        <div class="price">R$ 159,00</div>
+        <button class="btn-buy">Adicionar à Sacola</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">[ Imagem do Produto ]</div>
+        <div class="brand">Fenty Beauty</div>
+        <div class="product-name">Base Líquida Pro Filt'r Soft Matte</div>
+        <div class="price">R$ 219,00</div>
+        <button class="btn-buy">Adicionar à Sacola</button>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Best Seller</span>
+        <div class="product-image">[ Imagem do Produto ]</div>
+        <div class="brand">Dior</div>
+        <div class="product-name">Perfume Sauvage Eau de Toilette</div>
+        <div class="price">R$ 499,00</div>
+        <button class="btn-buy">Adicionar à Sacola</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li>Fale Conosco</li>
+          <li>Meus Pedidos</li>
+          <li>Devoluções e Reembolsos</li>
+          <li>Perguntas Frequentes</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sobre a Sephora</h4>
+        <ul>
+          <li>Nossas Lojas</li>
+          <li>Trabalhe Conosco</li>
+          <li>Sustentabilidade</li>
+          <li>Beauty Club</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <ul>
+          <li>Maquiagem</li>
+          <li>Perfumes</li>
+          <li>Cuidado com a Pele</li>
+          <li>Lançamentos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sephora. Todos os direitos reservados. Projeto Inspiracional.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
