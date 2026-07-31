@@ -1,1 +1,368 @@
-!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sephora | Beleza, Maquiagem, Perfumes e Skincare</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; } body { background-color: #f8f8f8; color: #000; } /* Top Bar de Promoções */ .top-bar { background-color: #000; color: #fff; text-align: center; padding: 8px 10px; font-size: 12px; letter-spacing: 0.5px; font-weight: bold; } /* Header Principal */ header { background-color: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top: 0; z-index: 1000; } 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sephora | Maquiagem, Perfumes e Dermo Cosméticos</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Bar Anúncio */
+        .top-bar {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .search-bar input {
+            width: 350px;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Navegação Principal */
+        nav {
+            background-color: #fff;
+            border-bottom: 2px solid #000;
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links li a:hover {
+            color: #e30000;
+        }
+
+        /* Banner Principal */
+        .hero-banner {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 8%;
+        }
+
+        .hero-text {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            max-width: 400px;
+            border-radius: 4px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .btn-shop {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-shop:hover {
+            background: #333;
+        }
+
+        /* Seção de Produtos */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .brand-name {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 11px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        FRETE GRÁTIS NAS COMPRAS ACIMA DE R$ 149 | PARCELE EM ATÉ 10X SEM JUROS
+    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">SEPHORA</a>
+            <div class="search-bar">
+                <input type="text" placeholder="O que você está procurando hoje?">
+            </div>
+            <div class="nav-icons">
+                <a href="#">Entrar / Cadastrar</a>
+                <a href="#">Sacola (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Marcas</a></li>
+            <li><a href="#">Maquiagem</a></li>
+            <li><a href="#">Perfumes</a></li>
+            <li><a href="#">Tratamento</a></li>
+            <li><a href="#">Cabelos</a></li>
+            <li><a href="#">Sephora Collection</a></li>
+            <li><a href="#" style="color: #e30000;">Ofertas</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h2>NOVIDADES EXCLUSIVAS</h2>
+            <p>Descubra os lançamentos mais desejados do mundo da beleza e aproveite brindes especiais.</p>
+            <a href="#" class="btn-shop">Confira Agora</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <h3 class="section-title">Os Mais Desejados</h3>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" alt="Batom">
+                <div class="brand-name">Sephora Collection</div>
+                <div class="product-name">Batom Matte Longa Duração</div>
+                <div class="price">R$ 69,00</div>
+                <a href="#" class="btn-shop">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80" alt="Perfume">
+                <div class="brand-name">Luxurious Fragrance</div>
+                <div class="product-name">Perfume Eau de Parfum 100ml</div>
+                <div class="price">R$ 459,00</div>
+                <a href="#" class="btn-shop">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=80" alt="Base">
+                <div class="brand-name">Beauty Care</div>
+                <div class="product-name">Base Liquida Efeito Natural</div>
+                <div class="price">R$ 189,00</div>
+                <a href="#" class="btn-shop">Comprar</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1608248597262-8133e0703829?auto=format&fit=crop&w=500&q=80" alt="Sérum">
+                <div class="brand-name">Skin Science</div>
+                <div class="product-name">Sérum Facial Hidratante</div>
+                <div class="price">R$ 229,00</div>
+                <a href="#" class="btn-shop">Comprar</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li>Central de Ajuda</li>
+                    <li>Fale Conosco</li>
+                    <li>Meus Pedidos</li>
+                    <li>Trocas e Devoluções</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sobre a Sephora</h4>
+                <ul>
+                    <li>Quem Somos</li>
+                    <li>Nossas Lojas</li>
+                    <li>Trabalhe Conosco</li>
+                    <li>Sustentabilidade</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Políticas</h4>
+                <ul>
+                    <li>Termos de Uso</li>
+                    <li>Política de Privacidade</li>
+                    <li>Regulamentos de Promoções</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; SEPHORA - Todos os direitos reservados. Imagens meramente ilustrativas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
